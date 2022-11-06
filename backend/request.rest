@@ -1,0 +1,27 @@
+GET http://localhost:5000/todo
+
+###
+GET http://localhost:5000/todo/2
+
+###
+POST http://localhost:5000/todo
+content-Type: application/json
+
+{
+    "uang": 1,
+    "desc": "fanta"
+
+}
+
+###
+PATCH http://localhost:5000/todo/2
+content-Type: application/json
+
+{
+    "uang": 1,
+    "desc": "ultra UHT"
+
+}
+
+###
+DELETE  http://localhost:5000/todo/3

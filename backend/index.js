@@ -6,6 +6,7 @@ const { PrismaClient } = require ("@prisma/client");
 const prisma = new PrismaClient()
 const bcrypt = require('bcrypt')
 const routes = require('./routes')
+const cookieparser = require('cookie-parser')
 dotenv.config();
 
 const app= express();
@@ -14,7 +15,9 @@ const port = 8000
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
+app.use(cookieparser());
 app.use(todoroute);
+
 
 app.get('/', async (req, res) =>{
     res.status(200).send({

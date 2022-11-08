@@ -5,23 +5,14 @@ const prisma = new PrismaClient();
 class _todo{
     getTodo = async (req, res) => {
         try {
-            const response = await prisma.todo.findMany();
-            res.status(200).json(response);
-        } catch (error) {
-            res.status(500).json({msg: error.message});
-        }
-    }
-    
-    getTodoByID = async (req, res) => {
-        try {
-            const response = await prisma.todo.findUnique({
+            const response = await prisma.todo.findMany({
                 where:{
-                    id: Number(req.params.id)
-                }
+                    user_id: Number(req.user.id),
+                } 
             });
             res.status(200).json(response);
         } catch (error) {
-            res.status(404).json({msg: error.message});
+            res.status(500).json({msg: error.message});
         }
     }
     
@@ -30,6 +21,7 @@ class _todo{
         try {
                 const todo = await prisma.todo.create({
                     data:{
+                        user_id: Number(req.user.id),
                         uang: uang,
                         desc: desc
                     }

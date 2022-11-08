@@ -1,4 +1,9 @@
 # kelompok5backend
 
 Screenshoot Run Postman
-![BE](https://user-images.githubusercontent.com/101168995/200324259-39a35492-a512-4161-be30-8a82bcbfc109.jpg)
+![BE](./Screenshot_1.png)
+
+### Kelompok 5
+- Abdi Surya Perdana (abdisuryaperdana)
+- Fauzi Rahman (baymazz)
+- Nefo Preyandre (Nefopreyandre)

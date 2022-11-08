@@ -7,11 +7,27 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = "mysql://root@localhost:3306/tugas_be"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(150)
+  email     String   @db.VarChar(150)
+  password  String   @db.VarChar(200)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  todo todo[]
+
+  @@map("auth_user")
 }
 
 model todo {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
+  user_id Int
   uang Int
   desc String
+  user User @relation(fields: [user_id],references: [id])
+
+  @@map("d_todo")
 }

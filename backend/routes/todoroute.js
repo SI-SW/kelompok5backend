@@ -1,11 +1,11 @@
-import express from "express";
-import {
+const express = require  ("express");
+const {
     getTodo,
     getTodoByID,
     createTodo,
     updateTodo,
     deleteTodo
-} from"../controllers/todocontroller.js";
+} = require ("../controllers/todocontroller.js");
 
 const router = express.Router();
 
@@ -15,4 +15,4 @@ router.post('/todo', createTodo);
 router.patch('/todo/:id', updateTodo);
 router.delete('/todo/:id', deleteTodo);
 
-export default router;
+module.exports = router;
